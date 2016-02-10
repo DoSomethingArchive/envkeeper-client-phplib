@@ -34,8 +34,8 @@ class EnvKeeperClient {
     }
     $filtred_settings = [];
     foreach ($settings as $setting) {
-      if (empty($setting->name) || empty($setting->value)) {
-        throw new Exception("Malfomed setting:" . serialize($setting));
+      if (empty($setting->name) || !isset($setting->value)) {
+        throw new Exception("Malfomed setting: " . serialize($setting));
       }
       $filtred_settings[$setting->name] = $setting->value;
     }
