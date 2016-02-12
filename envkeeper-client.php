@@ -24,7 +24,8 @@ class EnvKeeperClient {
    */
   public static function setup($api_url, $access_token)
   {
-    $json_result = file_get_contents($api_url . '/settings.json');
+    $endpoing = $api_url . '/settings/' . $access_token . '.json';
+    $json_result = file_get_contents($endpoing);
     if (!$json_result) {
       throw new Exception("Can't connect to EnvKeeper API.");
     }
